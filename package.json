@@ -8,5 +8,9 @@
   },
   "author": "Max Filenko <mail@filenko.ms> (https://github.com/mfilenko)",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "engines": {
+    "node": ">=8.4.0",
+    "npm": ">=5.3.0"
+  }
 }
