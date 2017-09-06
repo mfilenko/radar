@@ -7,5 +7,6 @@
     "test": "node test/index.js"
   },
   "author": "Max Filenko <mail@filenko.ms> (https://github.com/mfilenko)",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "private": true
 }
