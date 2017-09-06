@@ -1,0 +1,11 @@
+{
+  "name": "@car2go/radar",
+  "version": "0.1.0",
+  "description": "Locate vehicles inside strategic polygons",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/index.js"
+  },
+  "author": "Max Filenko <mail@filenko.ms> (https://github.com/mfilenko)",
+  "license": "UNLICENSED"
+}
