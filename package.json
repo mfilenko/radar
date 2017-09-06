@@ -4,7 +4,7 @@
   "description": "Locate vehicles inside strategic polygons",
   "main": "index.js",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "node_modules/.bin/xo && node test/index.js"
   },
   "author": "Max Filenko <mail@filenko.ms> (https://github.com/mfilenko)",
   "license": "UNLICENSED",
@@ -15,5 +15,12 @@
   },
   "dependencies": {
     "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "esnext": true,
+    "space": true
   }
 }
