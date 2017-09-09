@@ -28,7 +28,8 @@
       "no-unused-vars": ["error", {
         "ignoreRestSiblings": true,
         "argsIgnorePattern": "^next$"
-      }]
+      }],
+      "object-curly-spacing": ["error", "always"]
     },
     "space": true
   }
