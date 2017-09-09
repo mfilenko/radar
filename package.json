@@ -24,7 +24,11 @@
     "rules": {
       "capitalized-comments": "off",
       "comma-dangle": ["error", "always-multiline"],
-      "no-implicit-coercion": "off"
+      "no-implicit-coercion": "off",
+      "no-unused-vars": ["error", {
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^next$"
+      }]
     },
     "space": true
   }
