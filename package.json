@@ -23,7 +23,8 @@
     "esnext": true,
     "rules": {
       "capitalized-comments": "off",
-      "comma-dangle": ["error", "always-multiline"]
+      "comma-dangle": ["error", "always-multiline"],
+      "no-implicit-coercion": "off"
     },
     "space": true
   }
