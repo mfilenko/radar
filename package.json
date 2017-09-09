@@ -29,7 +29,8 @@
         "ignoreRestSiblings": true,
         "argsIgnorePattern": "^next$"
       }],
-      "object-curly-spacing": ["error", "always"]
+      "object-curly-spacing": ["error", "always"],
+      "unicorn/catch-error-name": ["warn", { "name": "e" }]
     },
     "space": true
   }
