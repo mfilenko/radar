@@ -22,7 +22,8 @@
   "xo": {
     "esnext": true,
     "rules": {
-      "capitalized-comments": "off"
+      "capitalized-comments": "off",
+      "comma-dangle": ["error", "always-multiline"]
     },
     "space": true
   }
