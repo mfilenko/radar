@@ -21,6 +21,9 @@
   },
   "xo": {
     "esnext": true,
+    "rules": {
+      "capitalized-comments": "off"
+    },
     "space": true
   }
 }
