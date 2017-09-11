@@ -24,12 +24,16 @@
     "polygon-lookup": "^2.2.0"
   },
   "devDependencies": {
+    "mocha": "^3.5.3",
+    "proxyquire": "^1.8.0",
+    "sinon": "^3.2.1",
     "xo": "^0.18.2"
   },
   "xo": {
     "esnext": true,
     "ignores": [
-      "benchmark.js"
+      "benchmark.js",
+      "test/unit/**/*"
     ],
     "rules": {
       "capitalized-comments": "off",

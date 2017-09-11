@@ -1,0 +1,161 @@
+FORMAT: 1A
+
+# car2go radar
+
+car2go radar API returns cars with their respective polygon IDs and polygons with VINs of the cars that are in them.
+
+# Cars [/cars]
+
+Query cars.
+
+## List All Cars [GET]
+
+Obtain list of all cars with polygons they're in.
+
++ Response 200 (application/json)
+
+        [{
+            "vin": "WME4513901K667194",
+            "lifecycleState": "ACTIVE",
+            "numberPlate": "S-GO2368",
+            "model": "SMART",
+            "engineType": "ED",
+            "hardwareVersion": "HW3",
+            "latitude": 48.71255,
+            "longitude": 9.15716,
+            "address": "Delpweg 1, 70565 Stuttgart",
+            "exterior": "GOOD",
+            "interior": "GOOD",
+            "fuel": 65,
+            "batteryVoltage": 12.491,
+            "charging": false,
+            "locationAlias": "Stuttgart",
+            "damageIds": [],
+            "bikeRack": false,
+            "childSeat": false,
+            "buildSeries": "C451",
+            "primaryColor": "EN2U",
+            "secondaryColor": "EAZO",
+            "fuelType": "ELECTRIC",
+            "polygonId": "58a58bf685979b5415f3a394"
+        }]
+
+# Polygons [/polygons]
+
+Query polygons.
+
+## List All Polygons [GET]
+
+Obtain list of all polygons with cars in them.
+
++ Response 200 (application/json)
+
+        [{
+            "_id": "58a58bd1766d51540f779343",
+            "updatedAt": "2017-03-27T14:04:34.470Z",
+            "createdAt": "2017-02-16T11:24:01.404Z",
+            "__v": 0,
+            "name": "Zellerstrasse",
+            "cityId": "548876e13a9424d55af738b5",
+            "legacyId": "18_118",
+            "type": "relocationzone",
+            "geoFeatures": [{
+                "name": "opticalCenter",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [9.17936921107052, 48.7610123636]
+                }
+            }, {
+                "name": "center",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [9.178419113158332, 48.761257553483325]
+                }
+            }],
+            "options": {
+                "active": true,
+                "is_excluded": false,
+                "area": 0.4
+            },
+            "timedOptions": [{
+                "key": "min",
+                "changesOverTime": [
+                    [594000000, 0],
+                    [590400000, 1],
+                    [586800000, 0],
+                    [565200000, 1],
+                    [561600000, 0],
+                    [522000000, 1],
+                    [518400000, 0],
+                    [504000000, 1],
+                    [460800000, 0],
+                    [417600000, 1],
+                    [374400000, 0],
+                    [331200000, 1],
+                    [288000000, 0],
+                    [244800000, 1],
+                    [201600000, 0],
+                    [158400000, 1],
+                    [115200000, 0],
+                    [86400000, 1],
+                    [75600000, 0],
+                    [72000000, 1],
+                    [68400000, 0],
+                    [46800000, 1],
+                    [43200000, 0],
+                    [3600000, 1],
+                    [0, 0]
+                ]
+            }, {
+                "key": "max",
+                "changesOverTime": [
+                    [0, 200]
+                ]
+            }, {
+                "key": "idle_time",
+                "changesOverTime": [
+                    [0, 2000]
+                ]
+            }, {
+                "key": "revenue",
+                "changesOverTime": [
+                    [0, 0]
+                ]
+            }, {
+                "key": "walking_range1",
+                "changesOverTime": [
+                    [0, 0]
+                ]
+            }, {
+                "key": "walking_range2",
+                "changesOverTime": [
+                    [0, 0]
+                ]
+            }],
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [9.17388439178, 48.7605739193],
+                        [9.17821884155, 48.7587633205],
+                        [9.18478488922, 48.7588199027],
+                        [9.18474197388, 48.7632614067],
+                        [9.17452812195, 48.7632614067],
+                        [9.17435646057, 48.762865365],
+                        [9.17388439178, 48.7605739193]
+                    ]
+                ]
+            },
+            "version": 1,
+            "$computed": {
+                "activeTimedOptions": {
+                    "min": 0,
+                    "max": 200,
+                    "idle_time": 2000,
+                    "revenue": 0,
+                    "walking_range1": 0,
+                    "walking_range2": 0
+                }
+            },
+            "vehicles": ["WME4513901K663967"]
+        }]
