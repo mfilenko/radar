@@ -18,6 +18,8 @@
   },
   "dependencies": {
     "express": "^4.15.4",
+    "express-pino-logger": "^2.0.0",
+    "pino": "^4.7.1",
     "point-in-polygon": "^1.0.1",
     "polygon-lookup": "^2.2.0"
   },
