@@ -1,12 +1,37 @@
 'use strict';
 
 // Third-party packages.
+const redis = require('redis');
 const inside = require('point-in-polygon');
 const PolygonLookup = require('polygon-lookup');
 
 const get = require('./get');
 
 const config = require('./config');
+
+// Initialization.
+const storage = redis.createClient(config.cache.port, config.cache.host);
+
+function cache(req, res, next) {
+  if (config.cache.disabled) {
+    return next();
+  }
+  return storage.get(req.route.path.split('/', 2).pop(), (error, data) => {
+    if (error) {
+      // NOTE: log the error and proceed without cache instead of dropping the
+      //       request ¯\_(ツ)_/¯
+      req.log.warn(error);
+      return next();
+    }
+    if (data) {
+      return res
+        .set('Content-Type', 'application/json; charset=utf-8')
+        .status(200)
+        .send(data);
+    }
+    return next();
+  });
+}
 
 async function fetch(req, res, next) {
   try {
@@ -43,10 +68,12 @@ function allocate(req, res, next) {
 
 function respond(req, res, next) {
   res.status(200).json(res.locals.result);
+  storage.setex(req.route.path.split('/', 2).pop(), config.cache.expiry, JSON.stringify(res.locals.result));
   return next();
 }
 
 module.exports = {
+  cache,
   fetch,
   locate,
   allocate,

@@ -22,4 +22,11 @@ module.exports = {
         return 'error';
     }
   },
+
+  toBoolean: value => {
+    if (typeof value === 'string') {
+      return !~['false', 'no'].indexOf(value.toLowerCase());
+    }
+    return !!value;
+  },
 };

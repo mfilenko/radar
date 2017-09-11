@@ -12,4 +12,14 @@ module.exports = {
     port: process.env.PORT || process.env.npm_package_config_listen || config.listen,
     loglevel: helpers.loglevel(process.env.NODE_ENV),
   },
+  cache: {
+    disabled: helpers.toBoolean(process.env.DISABLE_CACHE),
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT ||
+          process.env.npm_package_config_redis_port ||
+          config.redis_port,
+    expiry: process.env.REDIS_EXP ||
+            process.env.npm_package_config_redis_expiry ||
+            config.redis_expiry, // seconds
+  },
 };

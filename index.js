@@ -14,6 +14,7 @@ const config = require('./config');
 const app = express();
 const logger = pino();
 
+const cache = middleware.cache;
 const fetch = middleware.fetch;
 const locate = middleware.locate;
 const allocate = middleware.allocate;
@@ -30,9 +31,9 @@ app.locals.polygons = {
 
 app.use(expressPino({ logger }));
 
-app.get('/cars', fetch, locate, respond);
+app.get('/cars', cache, fetch, locate, respond);
 
-app.get('/polygons', fetch, allocate, respond);
+app.get('/polygons', cache, fetch, allocate, respond);
 
 app.use((err, req, res, next) => {
   req.log.error(err);
