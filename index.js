@@ -4,6 +4,7 @@
 const express = require('express');
 const pino = require('pino');
 const expressPino = require('express-pino-logger');
+const retry = require('async-retry');
 
 const middleware = require('./middleware');
 const get = require('./get');
@@ -40,8 +41,8 @@ app.use((err, req, res, next) => {
   return res.sendStatus(500);
 });
 
-// Get initial data before start.
-(async () => get(config.polygons))()
+// We won't start until we _finally_ get initial data.
+(async () => retry(async () => get(config.polygons)))()
   .then(polygons => {
     app.locals.polygons.features = polygons;
     app.listen(config.app.port, () => logger.debug(`Listening on port ${config.app.port}`));
